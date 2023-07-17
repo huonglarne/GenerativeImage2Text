@@ -1,0 +1,75 @@
+2023-07-17 16:53:01,066.066 1625770:train.py:309   <module>(): param:
+{'captions': ['a couple of boats in a large body of water.',
+              'a view of a mountain with a tree'],
+ 'image_files': ['aux_data/images/1.jpg', 'aux_data/images/2.jpg'],
+ 'type': 'forward_backward_example'}
+2023-07-17 16:53:01,441.441 1625770:train.py:234 forward_backward_example(): SelectTransform(ts=[Compose(
+    ImageTransform2Dict(image_transform=Compose(
+    RandomResizedCrop(size=(160, 160), scale=(0.8, 1.0), ratio=(1.0, 1.0), interpolation=bicubic), antialias=None)
+    ToTensor()
+    Normalize(mean=(0.48145466, 0.4578275, 0.40821073), std=(0.26862954, 0.26130258, 0.27577711))
+))
+), Compose(
+    ImageTransform2Dict(image_transform=Compose(
+    RandomResizedCrop(size=(176, 176), scale=(0.8, 1.0), ratio=(1.0, 1.0), interpolation=bicubic), antialias=None)
+    ToTensor()
+    Normalize(mean=(0.48145466, 0.4578275, 0.40821073), std=(0.26862954, 0.26130258, 0.27577711))
+))
+), Compose(
+    ImageTransform2Dict(image_transform=Compose(
+    RandomResizedCrop(size=(192, 192), scale=(0.8, 1.0), ratio=(1.0, 1.0), interpolation=bicubic), antialias=None)
+    ToTensor()
+    Normalize(mean=(0.48145466, 0.4578275, 0.40821073), std=(0.26862954, 0.26130258, 0.27577711))
+))
+), Compose(
+    ImageTransform2Dict(image_transform=Compose(
+    RandomResizedCrop(size=(208, 208), scale=(0.8, 1.0), ratio=(1.0, 1.0), interpolation=bicubic), antialias=None)
+    ToTensor()
+    Normalize(mean=(0.48145466, 0.4578275, 0.40821073), std=(0.26862954, 0.26130258, 0.27577711))
+))
+), Compose(
+    ImageTransform2Dict(image_transform=Compose(
+    RandomResizedCrop(size=(224, 224), scale=(0.8, 1.0), ratio=(1.0, 1.0), interpolation=bicubic), antialias=None)
+    ToTensor()
+    Normalize(mean=(0.48145466, 0.4578275, 0.40821073), std=(0.26862954, 0.26130258, 0.27577711))
+))
+)], selector=<function get_multi_scale_image_transform.<locals>.<lambda> at 0x7fd1859d8af0>)
+[2023-07-17 16:53:01.514] [info] Requesting resources for KT AI Accelerator from the server...
+[2023-07-17 16:53:02.530] [info] Initializing the worker daemon for KT AI Accelerator
+[2023-07-17 16:53:04.008] [info] [1/1] Connecting to resources on the server (192.168.110.39:24167)...
+[2023-07-17 16:53:04.022] [info] Establishing links to the resources...
+[2023-07-17 16:53:04.165] [info] KT AI Accelerator is ready to use.
+Traceback (most recent call last):
+  File "/nas/.conda/envs/hf/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/nas/.conda/envs/hf/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/nas/huong/projects/GenerativeImage2Text/generativeimage2text/train.py", line 312, in <module>
+    locals()[function_name](**kwargs)
+  File "/nas/huong/projects/GenerativeImage2Text/generativeimage2text/train.py", line 238, in forward_backward_example
+    model = get_git_model(tokenizer, param)
+  File "/nas/huong/projects/GenerativeImage2Text/generativeimage2text/model.py", line 10, in get_git_model
+    image_encoder = get_image_encoder(
+  File "/nas/huong/projects/GenerativeImage2Text/generativeimage2text/model.py", line 61, in get_image_encoder
+    model, _ = clip.load(name_in_clip, device='cpu', jit=False)
+  File "/nas/huong/projects/GenerativeImage2Text/generativeimage2text/layers/CLIP/clip.py", line 82, in load
+    model = build_model(model.state_dict(), skip_load=skip_load).to(device)
+  File "/nas/.conda/envs/hf/lib/python3.8/site-packages/torch/_M/driver/wrapper/moreh_wrapper.py", line 133, in wrapper
+    raise instance
+  File "/nas/.conda/envs/hf/lib/python3.8/site-packages/torch/_M/driver/wrapper/moreh_wrapper.py", line 72, in wrapper
+    return torch_function(*args, **kwargs)
+  File "/nas/.conda/envs/hf/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1445, in state_dict
+    self._save_to_state_dict(destination, prefix, keep_vars)
+  File "/nas/.conda/envs/hf/lib/python3.8/site-packages/torch/_M/driver/wrapper/moreh_wrapper.py", line 133, in wrapper
+    raise instance
+  File "/nas/.conda/envs/hf/lib/python3.8/site-packages/torch/_M/driver/wrapper/moreh_wrapper.py", line 72, in wrapper
+    return torch_function(*args, **kwargs)
+  File "/nas/.conda/envs/hf/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1362, in _save_to_state_dict
+    destination[extra_state_key] = self.get_extra_state()
+  File "/nas/.conda/envs/hf/lib/python3.8/site-packages/torch/_M/driver/wrapper/moreh_wrapper.py", line 133, in wrapper
+    raise instance
+  File "/nas/.conda/envs/hf/lib/python3.8/site-packages/torch/_M/driver/wrapper/moreh_wrapper.py", line 72, in wrapper
+    return torch_function(*args, **kwargs)
+  File "/nas/.conda/envs/hf/lib/python3.8/site-packages/torch/nn/modules/module.py", line 619, in get_extra_state
+    raise RuntimeError(
+RuntimeError: Reached a code path in Module.get_extra_state() that should never be called. Please file an issue at https://github.com/pytorch/pytorch/issues/new?template=bug-report.yml to report this bug.

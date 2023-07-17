@@ -1,0 +1,67 @@
+2023-07-17 16:50:29,323.323 1625327:train.py:309   <module>(): param:
+{'captions': ['a couple of boats in a large body of water.',
+              'a view of a mountain with a tree'],
+ 'image_files': ['aux_data/images/1.jpg', 'aux_data/images/2.jpg'],
+ 'type': 'forward_backward_example'}
+2023-07-17 16:50:29,692.692 1625327:train.py:234 forward_backward_example(): SelectTransform(ts=[Compose(
+    ImageTransform2Dict(image_transform=Compose(
+    RandomResizedCrop(size=(160, 160), scale=(0.8, 1.0), ratio=(1.0, 1.0), interpolation=PIL.Image.BICUBIC)
+    ToTensor()
+    Normalize(mean=(0.48145466, 0.4578275, 0.40821073), std=(0.26862954, 0.26130258, 0.27577711))
+))
+), Compose(
+    ImageTransform2Dict(image_transform=Compose(
+    RandomResizedCrop(size=(176, 176), scale=(0.8, 1.0), ratio=(1.0, 1.0), interpolation=PIL.Image.BICUBIC)
+    ToTensor()
+    Normalize(mean=(0.48145466, 0.4578275, 0.40821073), std=(0.26862954, 0.26130258, 0.27577711))
+))
+), Compose(
+    ImageTransform2Dict(image_transform=Compose(
+    RandomResizedCrop(size=(192, 192), scale=(0.8, 1.0), ratio=(1.0, 1.0), interpolation=PIL.Image.BICUBIC)
+    ToTensor()
+    Normalize(mean=(0.48145466, 0.4578275, 0.40821073), std=(0.26862954, 0.26130258, 0.27577711))
+))
+), Compose(
+    ImageTransform2Dict(image_transform=Compose(
+    RandomResizedCrop(size=(208, 208), scale=(0.8, 1.0), ratio=(1.0, 1.0), interpolation=PIL.Image.BICUBIC)
+    ToTensor()
+    Normalize(mean=(0.48145466, 0.4578275, 0.40821073), std=(0.26862954, 0.26130258, 0.27577711))
+))
+), Compose(
+    ImageTransform2Dict(image_transform=Compose(
+    RandomResizedCrop(size=(224, 224), scale=(0.8, 1.0), ratio=(1.0, 1.0), interpolation=PIL.Image.BICUBIC)
+    ToTensor()
+    Normalize(mean=(0.48145466, 0.4578275, 0.40821073), std=(0.26862954, 0.26130258, 0.27577711))
+))
+)], selector=<function get_multi_scale_image_transform.<locals>.<lambda> at 0x7f274e7739d0>)
+[2023-07-17 16:50:29.737] [info] Requesting resources for KT AI Accelerator from the server...
+[2023-07-17 16:50:30.754] [info] Initializing the worker daemon for KT AI Accelerator
+[2023-07-17 16:50:32.420] [info] [1/1] Connecting to resources on the server (192.168.110.19:24164)...
+[2023-07-17 16:50:32.432] [info] Establishing links to the resources...
+[2023-07-17 16:50:32.529] [info] KT AI Accelerator is ready to use.
+Traceback (most recent call last):
+  File "/nas/.conda/envs/hf/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/nas/.conda/envs/hf/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/nas/huong/projects/GenerativeImage2Text/generativeimage2text/train.py", line 312, in <module>
+    locals()[function_name](**kwargs)
+  File "/nas/huong/projects/GenerativeImage2Text/generativeimage2text/train.py", line 241, in forward_backward_example
+    loss_dict = model(data)
+  File "/nas/.conda/envs/hf/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/nas/huong/projects/GenerativeImage2Text/generativeimage2text/layers/decoder.py", line 839, in forward
+    result = self.forward_one(batch, return_info=False)
+  File "/nas/huong/projects/GenerativeImage2Text/generativeimage2text/layers/decoder.py", line 874, in forward_one
+    return self.forward_one_ce(batch, visual_features, visual_features_valid, return_info)
+  File "/nas/huong/projects/GenerativeImage2Text/generativeimage2text/layers/decoder.py", line 926, in forward_one_ce
+    output_logits = self.textual(
+  File "/nas/.conda/envs/hf/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/nas/huong/projects/GenerativeImage2Text/generativeimage2text/layers/decoder.py", line 566, in forward
+    trans_out = self.transformer(
+  File "/nas/.conda/envs/hf/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/nas/huong/projects/GenerativeImage2Text/generativeimage2text/layers/decoder.py", line 130, in forward
+    assert memory_key_padding_mask.dtype == torch.bool
+AssertionError
